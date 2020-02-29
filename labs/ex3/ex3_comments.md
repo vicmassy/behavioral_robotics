@@ -1,0 +1,6 @@
+# Exercise 3
+- The observation vector of the acrobot consists of the angle of the first joint with respect of the vertical axis, the angle of the second joint (passive) with respect of the first joint and the joint angular velocities. [cos(theta1) sin(theta1) cos(theta2) sin(theta2) thetaDot1 thetaDot2]
+- The possible actions for this environment are just applying torque on the first joint (+1,0,-1). 
+- The reward is calculated by returning a -1 every time the end effector is below the goal line (height at least the length of one link above the base). When the end-effector reaches the goal, a terminal state is reached and return 0 reward value.
+- I ran a few replications with different seeds (10,11,50,80,100). The plots across generations are located in this directory with the corresponding seed number. 
+- The behavior of the acrobot is straighforward, it firts oscillates in the downward position to achieve that the second link moves up and then a torque is applied to swing the first link up. (The best genomes for each seed are provided in the directory also)
