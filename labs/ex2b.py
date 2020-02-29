@@ -5,6 +5,7 @@ import time
 env = gym.make('CartPole-v0')
 # env = gym.make('Pendulum-v0')
 
+lamda = 20 # population size (even number)
 episodes = 10
 steps = 200
 pvariance = 0.1 # variance of initial parameters
@@ -52,7 +53,6 @@ def evaluate(W1, W2, b1, b2):
 
 
 def train():
-    lamda = 20 # population size (even number)
     g = 1000
     N = nhiddens*ninputs+noutputs*nhiddens+nhiddens+noutputs
     population = np.zeros((lamda, N)) # (lamda, (W1,W2,b1,b2))
