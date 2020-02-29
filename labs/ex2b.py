@@ -53,7 +53,7 @@ def evaluate(W1, W2, b1, b2):
 
 def train():
     lamda = 20 # population size (even number)
-    g = 100
+    g = 1000
     N = nhiddens*ninputs+noutputs*nhiddens+nhiddens+noutputs
     population = np.zeros((lamda, N)) # (lamda, (W1,W2,b1,b2))
     population[:, :-(nhiddens+noutputs)] = np.random.randn(lamda, N-nhiddens-noutputs)*pvariance
@@ -93,5 +93,5 @@ for i in range(100):
             else:
                 print("FAIL. Episode "+str(i+1)+" finshed with fitness "+str(fitness))
             break
-        time.sleep(0.01)
+        #time.sleep(0.01)
 env.close()
