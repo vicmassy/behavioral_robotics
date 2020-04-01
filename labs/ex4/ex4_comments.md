@@ -1,0 +1,21 @@
+# Exercise 4
+- The locomotor problem chosen to be evolved was the ant. 
+- Since it takes a lot of time to completely evolve the solution, we took advantage of having already the pretrained solution of seed 1 for the modified reward function and just evolve the solution with the original reward for the same seed to compare. It took 18 hours to get the solution (bestgS1_original.npy).
+- The reward function of the original code is the same for every gym locomotion environment which consists in the sum of the follwing components:
+  - progress: movement towards the goal direction
+  - alive: a bonus for staying just alive each step
+  - electricity cost: penalty for the speed of each motor plus penalty for the robot moving its actuators
+  - joints at limit: penalty when the joints are at its limit angle.
+- The modified reward function for the ant is as following:
+  - progress: movement towards the goal direction
+  - alive: constant bonus for staying alive each step
+  - stall cost: penalty for the robot moving its actuators
+  - joints at limit: penalty when the joints are at its limit angle.  
+- The modified reward function for the Hopper is:
+  - progress: movement towards the goal direction
+- The modified reward function for the Half Cheetah is:
+  - progress: movement towards the goal direction
+  - joints at limit: penalty when the joints are at its limit angle.  
+  - terminate the episode when z < 0.3
+- Overall if the two behaviors are compared, original and modified, the original it moves for some steps and then stops and stands still for the whole episode. In the other hand, the modified it does the expected behavior of moving in the direction of the goal with a smooth and natural movement. 
+- The modified reward is more suitable for evolutionary algorithms because it removes redundant reward components and narrow more specifically the reward function. In other words, it properly describes what is a good chromosome for the algorithm and what behavior should execute. The original function has many costs and features that is hard for the evolutionary algorithm to guess what is the correct behavior for a good chromosome. 
