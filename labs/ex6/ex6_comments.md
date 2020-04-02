@@ -1,0 +1,11 @@
+# Exercise 6
+- I ran 10 replications with different seeds of the ErDiscrim problem, from seed 11 to seed 20. The behavior or strategies used by each robot of each replication can be grouped into families: 
+    - Seeds 11, 15: This robots they perform circular motion around the cylinder, probably because it found out that was gaining reward while exploring the arena in a circular way while avoiding the walls.
+    - Seeds 12, 14, 16, 17, 20: This robots they remaing near the cylinder by performing small oscillations in the yaw angle and back and forth. They are in general more straightforward and behave in a more natural way to approach the cylinder. They tend to get more reward on average, because they completely avoid the walls and perform straight movements towards the cylinder. Probably they learnt this behavior because the robot was colliding a lot with the walls or because it was lucky to find the cylinder just going forward. 
+    - Seeds 13, 18, 19: This robots they turn around themselves (yaw angle) near the cylinder to get rewards. 
+- In general, the robot cannot guess a particular behavior because it can get rewards with many different strategies. To narrow more the behavior one could introduce a penalty for energy consumption for example. There are many ways to solve this problem and the robot is just exploring a wide range of possible solutions, depending on what is more convinient in a certain situation. 
+- If the architecture of the neural network is changed to feed-forward instead of LSTM we still can group the behaviors in different groups:
+    - Seeds 1,2,5: Experience the same behavior explained before of small oscillations near the cylinder.
+    - Seed 3: Most of the trials is lost in the arena doing nothing or trying to find the cylinder with the back sensors. 
+    - Seed 4: Sometimes it is lost in the arena and it is not able to approach the cylinder even passing near it. However if he detects it, sometimes it does the behavior described before of circles aorund the cylinder. 
+- In general I would say that feed-forward evolved robots tend to be more lost and are more susceptible to fail the task or collect low reward. 

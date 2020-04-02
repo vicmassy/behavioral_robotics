@@ -1,0 +1,2 @@
+# Exercise 5
+- The robot was evolved using the evolutionary software evorobotpy. The result shown in "bestgS1.npy" demonstrates that the robot is able to balance itself for the whole episode and under any initial condition. Moreover, thanks to the reward function that takes into account the amount of speed used for balancing as a penalty, the robot tends to be energy efficient. 
